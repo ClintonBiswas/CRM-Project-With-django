@@ -1,0 +1,18 @@
+
+{% extends "home.html" %} 
+{% load tailwind_filters %}
+{% block body_block %}
+
+
+<div class="max-w-lg mx-auto">
+  <div class="py-5 border-b-2 border-gray-300">
+    <a class="hover:text-blue-600" href="{% url 'leads:lead-list' %}">Go Back To Leads</a>
+  </div>
+  <h1 class="text-2xl text-gray-900 text-center">Assign an agent to this lead</h1>
+  <form method="post">
+    {{form|crispy}}  
+    {% csrf_token %}
+    <button class="w-full mt-5 text-white bg-green-500 border-0 py-2 px-6 focus:outline-none hover:bg-green-600 rounded" type="submit">Submit</button>
+  </form>
+</div>
+{% endblock %}

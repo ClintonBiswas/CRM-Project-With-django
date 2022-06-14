@@ -1,0 +1,17 @@
+{% extends 'home.html' %} 
+{% load tailwind_filters %}
+{% block body_block%}
+
+  <div class="max-w-lg mx-auto mt-5">
+    <form method="post">
+      {{form|crispy}} 
+      {% csrf_token %}
+      <button class="w-full bg-blue-500 hover:bg-blue-600 px-3 py-2 rounded-md" type="submit">Register</button>
+    </form>
+    <div class="mt-5 py-5 border-t border-gray-300">
+      <a class="hover:text-blue-500" href="{% url 'login' %}">Already Have An Account?</a>
+    </div>
+  </div>
+
+
+{% endblock %}

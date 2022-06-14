@@ -1,0 +1,26 @@
+{% extends 'home.html' %} 
+{% load tailwind_filters %}
+{% block body_block %} 
+
+
+<div class="max-w-lg mx-auto mt-5">
+  <a class=" mt-1 hover:text-blue-500" href="/leads">Go Back</a>
+  <div class="py-5 border-t border-gray-300">
+    <h1 class="text-2xl text-gray-800 text-center">Create a new lead</h1>
+  </div>
+  <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 mt-3" method="post">
+    {{form|crispy}} 
+    {% csrf_token %}
+    <button
+    class="w-full bg-blue-500 hover:bg-blue-600 px-3 py-2 rounded-md"
+      type="submit"
+    >
+      Create Lead
+    </button>
+  </form>
+</div>
+<!-- <form method="post">
+  {{form.as_p}} {% csrf_token %}
+  <button type="submit">Create</button>
+</form> -->
+{% endblock %}
